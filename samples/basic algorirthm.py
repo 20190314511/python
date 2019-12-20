@@ -23,7 +23,7 @@ def primes(n):
             if (i%j==0):
                 isflag = 0
         if (isflag==1):
-            print i,
+            print(i)
     print
 
 

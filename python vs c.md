@@ -1,8 +1,8 @@
 # C VS Python
 
-## C version
+## 1 C version
 
-### Using 32bit integer
+### 1.1 Using 32bit integer
 ~~~ c result
 153		@00% 0    
 370		@0                                     
@@ -30,7 +30,7 @@ Total daffodil numbers found:22
 Total time used:71
 ~~~
 
-### using long long 64bit integer
+### 1.2 using long long 64bit integer
 
 ~~~ c
 153             @0
@@ -60,10 +60,11 @@ Total daffodil numbers found:22
 Total time used:549
 ~~~
 
-## python version:
+## 2 python version:
 
-### T3600, virtualbox
+### 2.1 T3600, virtualbox
 
+Python 3.8 x64, Virtualbox Windows 7
 ~~~ python
 153 370 371 407         time used:0.011194944381713867
 1634 8208 9474  time used:0.13806962966918945
@@ -76,17 +77,29 @@ Total time used:549
 - 相对于c的longlong版本,慢50倍
 - 对于c的long版本,慢200倍
 
-### vm-abeliu-dev, python3.8:
+### 2.2 vm-abeliu-dev
+
+Hyper-v虚拟机，windows 7 x86
+
+#### 2.2.1 Python 3.8 x86
+
+标准的python 3.8 x86版本
+
+~~~ python
 153 370 371 407         time used:0.004838705062866211
 1634 8208 9474  time used:0.06193280220031738
 54748 92727 93084       time used:0.5544922351837158
 548834  time used:6.78160285949707
 1741725 4210818 9800817 9926315         time used:79.79238224029541
 24678050 24678051
+~~~
 
 > 比上个版本快一倍多，200/80
 
-### vm-abeliu-dev, python3.8, anaconda numba
+#### 2.2.2 anaconda numba
+
+同样在hyper-v的虚拟机环境下，安装anaconda3 32bits
+内置python3.7.4 32bit
 
 ~~~ python
 153 370 371 407         time used:1.9988083839416504
@@ -100,21 +113,38 @@ Total time used:549
 
 似乎有一定效果，比上个版本快了一倍。
 
-## Conclusion
+#### 2.2.3 Pypy
+
+绿色版本Pypy 3.6 V7.2.0 32bits
+
+~~~ python pypy
+153 370 371 407 	time used:0.01555490493774414
+1634 8208 9474 	time used:0.01555490493774414
+54748 92727 93084 	time used:0.01555490493774414
+548834 	time used:0.07777810096740723
+1741725 4210818 9800817 9926315 	time used:0.8020880222320557
+24678050 24678051 88593477 	time used:9.893769979476929
+146511208 472335975 534494836 912985153 	time used:105.88589191436768
+~~~
+确实具有很大的提高，已经超过c的64位版本性能，只比c的版本慢50%。
+
+## 3 Conclusion
 
 |语言|版本|位数|时间(Sec)|备注|
 |----|---|:----:|----:|----|
-|C| 32bits|7|0|少于1秒|
+|C| 32bits<br>Integer|7|0|少于1秒|
 |||8|6||
 | |     |9|71||
-||64bits|7|4||
+||64bits<br>Ingeter|7|4||
 |||8|43||
 |||9|549||
-|Python|普通|7|205||
-||numba|7|39.55||
-|||8|420||
+|Python|V3.8 x86|7|205||
+||Anaconda3<br>numba|7|39.6(32.3)||
+|||8|420(368)||
 || |9|4500||
-
+|| Pypy 3.6|7|1.15||
+|||8|11.34||
+|||9|121||
 
 
 

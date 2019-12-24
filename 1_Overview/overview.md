@@ -16,6 +16,11 @@
 * Github简介
 * 参考课程Python-100-Days，简称D100
 * 参考官网 https://www.python.org
+* git 配置：
+git免密配置命令,自动保存上次输入的用户名/密码
+~~~git
+    git config --global credential.helper store
+~~~
 
 ## 作业
 

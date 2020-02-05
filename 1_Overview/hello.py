@@ -7,6 +7,8 @@ import this
 多行注释
 汉字注释
 """
+
+# 输出演示
 print("Hello, Wrold!")
 print("你好！")
 print("你好！", "世界", sep='', end='!\n')
@@ -15,6 +17,9 @@ print("*****", end="\n\n")
 
 print(12345*54321)
 
+# 输入/输出测试
 pie = 3.14159
 r = float(input("r="))
 print( 's=%.2f, l=%.2f' % (r*r*pie, 2*pie*r) )
+
+

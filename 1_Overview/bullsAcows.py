@@ -7,7 +7,7 @@ stopguess = False
 counter = 0
 timestart = time.clock()
 
-while True:
+while stopguess==false:
     rand = r.randint(1000,10000)
 
     while True:
@@ -27,7 +27,5 @@ while True:
             else:
                 print("猜小了")
             continue
-    if stopguess:
-        break
     
 

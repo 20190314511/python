@@ -34,17 +34,19 @@ def judge(randstr, guessstr):
     for c in gbits:
         if c=="":
             continue
-        if( randstr.rfind(c)>=0):
+        if( rbits.count(c)>0):
             B+=1
+            rbits.remove(c)
+
     return "A"+str(A)+"B"+str(B)  
 
 print("开始猜数")
 
 stopguess = False
-counter = 0
 timestart = time.process_time_ns()
 
 while stopguess==False:
+    counter = 0
     rand = r.randint(1000,10000)
 
     while True:

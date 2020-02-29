@@ -2,7 +2,20 @@
 
 ## Program Flowchart
 
+
+例题strexp：
+
+```mermaid
+graph TB;
+    st(开始)-->input(输入数字n)-->test{判断}
+    test--==0-->print0(打印Hello World)-->e(结束)
+    test-- >0-->print1(每行单字母打印)-->e
+    test-- <0-->print2(每行双字母打印)-->e
+```
+
 ## 顺序结构
+
+基本结构，顺序执行各语句
 
 ## 分支结构
 

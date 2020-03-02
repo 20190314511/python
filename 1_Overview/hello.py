@@ -35,7 +35,7 @@ print("eval(\"3+4\")=", a)
 print()
 
 # 循环及换行测试
-for i in range(10):
+for i in range(1:10):
     print(i,end="")
     if (i+1)%4==0:
         print()

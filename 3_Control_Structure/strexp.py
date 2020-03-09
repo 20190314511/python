@@ -9,6 +9,7 @@ elif n>0:
 else:
     if (len(str)%2!=0):
         str = str+" "
-    for i in range(0,len(str), 2):
+    strlen = len(str)
+    for i in range(0,strlen, 2):
         print(str[i],str[i+1],sep="")
         

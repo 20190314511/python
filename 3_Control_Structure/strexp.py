@@ -1,3 +1,5 @@
+# 字符串处理方法
+
 n = int(input("请输入数字n："))
 str = "Hello World!1"
 

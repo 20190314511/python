@@ -4,7 +4,6 @@ import sys
 
 # 准备pow数组，p[i][j]保存pow(i,j)
 p = []
-item = []
 for i in range(10):
     item = []
     for j in range(10):

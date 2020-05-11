@@ -10,7 +10,7 @@
 #-------------------------------------------------------------------------------
 
 def main():
-    primes(200)
+    RingOut(20,3)
 
 
 def primes(n):
@@ -32,17 +32,16 @@ def RingOut( n, m ):
     for i in range(n):
         mans += [i+1]
 
-    print len(mans)
-
+    #print(len(mans))
 
     c = 0
     j = 0
     while len(mans) > 0:
-        c+=1
         if ( c==m ):
            c=0
-           print mans[j],
+           print( mans[j] )
            mans.remove( mans[j])
+        c+=1
         j+=1
         if j>=len(mans):
            j=0

@@ -1,9 +1,12 @@
+import re
+import sys
+
 txt = open("5_Complex_Data_Types/hamlet.txt", "r").read().lower()
 
-for ch in '!"#$%&()*+,-./:;<=>?@[\\]^_‘{|}~':
-    txt = txt.replace(ch, " ")   #将文本中特殊字符替换为空格
+pa = re.compile("[^a-zA-Z0-9]")
+newtxt = re.sub(pa, " ", txt)
 
-words = txt.split()
+words = newtxt.split()
 
 counters = {}
 
@@ -14,7 +17,7 @@ for word in words:
 items = list(counters.items())
 items.sort( key=lambda x: x[1], reverse = True )
 
-print( len(words), len(items) )
-for i in range(10):
+for i in range( 20 ):
+    t = items[i][0]
     print(items[i])
 

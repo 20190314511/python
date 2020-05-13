@@ -12,10 +12,17 @@ def writefile( filename, source ):
     fo.write(source)
     fo.close()
 
+def word_process( ch, wd, kwlist, prefix_dot, last ):
+    functionwords = '('
+
+    if (wd not in kwlist):
+        if ch not in functionwords and last==False and not prefix_dot:
+            wd = wd.upper()
+    return wd
+
 def parse( source ):
     stopwords = "\t\n\r: ()=."
     lastAvailable = ['from', 'import']
-    functionwords = '('
     kwlist = keyword.kwlist
     kwlist.append("encoding")
 
@@ -29,9 +36,7 @@ def parse( source ):
     for ch in source:
         if (ch in "\"\'" or instr):
             wd = "".join(word)
-            if (wd not in kwlist):
-                if ch not in functionwords and last==False and not prefix_dot:
-                    wd = wd.upper()
+            wd = word_process(ch, wd, kwlist, prefix_dot, last)
             output+= wd + ch
             word = []
             if (lastch!="\\" and ch in "\"\'"):
@@ -41,9 +46,7 @@ def parse( source ):
                 wd = "".join(word)
                 if (last==True):
                     kwlist.append(wd.strip())
-                if (wd not in kwlist):
-                    if ch not in functionwords and last==False and not prefix_dot:
-                        wd = wd.upper()
+                wd = word_process(ch, wd, kwlist, prefix_dot, last)
 
                 if wd in lastAvailable:
                     last = True

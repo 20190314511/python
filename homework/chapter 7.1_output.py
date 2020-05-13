@@ -12,10 +12,17 @@ def writefile( FILENAME, SOURCE ):
     FO.write(SOURCE)
     FO.close()
 
+def word_process( CH, WD, KWLIST, PREFIX_DOT, LAST ):
+    FUNCTIONWORDS = '('
+
+    if (WD not in KWLIST):
+        if CH not in FUNCTIONWORDS and LAST==False and not PREFIX_DOT:
+            WD = WD.upper()
+    return WD
+
 def parse( SOURCE ):
     STOPWORDS = "\t\n\r: ()=."
     LASTAVAILABLE = ['from', 'import']
-    FUNCTIONWORDS = '('
     KWLIST = keyword.kwlist
     KWLIST.append("encoding")
 
@@ -29,9 +36,7 @@ def parse( SOURCE ):
     for CH in SOURCE:
         if (CH in "\"\'" or INSTR):
             WD = "".join(WORD)
-            if (WD not in KWLIST):
-                if CH not in FUNCTIONWORDS and LAST==False and not PREFIX_DOT:
-                    WD = WD.upper()
+            WD = word_process(CH, WD, KWLIST, PREFIX_DOT, LAST)
             OUTPUT+= WD + CH
             WORD = []
             if (LASTCH!="\\" and CH in "\"\'"):
@@ -41,9 +46,7 @@ def parse( SOURCE ):
                 WD = "".join(WORD)
                 if (LAST==True):
                     KWLIST.append(WD.strip())
-                if (WD not in KWLIST):
-                    if CH not in FUNCTIONWORDS and LAST==False and not PREFIX_DOT:
-                        WD = WD.upper()
+                WD = word_process(CH, WD, KWLIST, PREFIX_DOT, LAST)
 
                 if WD in LASTAVAILABLE:
                     LAST = True

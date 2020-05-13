@@ -1,5 +1,9 @@
-fs = open("5_Complex_Data_Types/hamlet.txt","r")
+s = [123,22,0,3,39,299]
 
-for line in fs:
-    print(line)
-    
+t  = s[0:5]
+
+print(t)
+t = sorted(s[0:5])
+
+print(t)
+print(s)

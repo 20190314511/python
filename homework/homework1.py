@@ -12,4 +12,4 @@ now=datetime.datetime.now()
 
 print(name, ip)
 print(osname)
-print(now)
+print( now )

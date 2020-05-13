@@ -1,5 +1,6 @@
 def dispcont(filename, enc):
-    print("\n\n==================================\n{}\n================================".format(filename))
+    temp= filename.split("/")
+    print("\n\n====================================\n{}\n====================================".format(temp[-1]))
     fs = open(filename, "rt", encoding=enc )
     txt = fs.read()
     fs.close()

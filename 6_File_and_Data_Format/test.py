@@ -1,9 +1,5 @@
-s = [123,22,0,3,39,299]
+p = 0.5
+p1 = 0.85
 
-t  = s[0:5]
-
-print(t)
-t = sorted(s[0:5])
-
-print(t)
-print(s)
+print( "{:20.18f}".format(p) )
+print( "{:20.18f}".format(p1) )
